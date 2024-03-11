@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+    <style>
+        
+     
+    </style>   
+ 
+  </head>
+  <body>
+    
+    <div class="area">
+       
+        <div class="table-responsive mx-auto" style="max-width: 70%;">
+            <table class="table table-striped ">
+               <thead>
+                   <tr>
+                     <th scope="col">Teacher Name</th>
+                     <th scope ="col">Actions</th>
+                     
+                 </tr>
+                 </thead>
+               
+                 {% for teacher in teachers %}
+                 <tbody>
+                   <tr>
+                     <td>{{teacher.name}}</td>
+                     <td>
+                       <span style="font-size: 24px;color:green;">
+                           <a href="/{{teacher.id}}/approveteacher"><i class="fa fa-check" style="color: green"></i></a></span>
+                           |
+                           <span style="font-size: 24px;color:red;">
+                               <a href="/{{teacher.id}}/disapproveteacher"><i class="fa fa-times" style="color: red"></i></a></span>
+                   </td>
+               </div>
+                   </tr>
+                   </tbody>
+               {% endfor %}
+    
+       
+    </div><nav class="main-menu">
+        
+            <ul>
+                <li>
+                    <a href="{{url_for('views.admindashboard')}}">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                           Home
+                        </span>
+                    </a>
+                  
+                </li>
+                
+               <li class="has-subnav">
+                    <a href="{{url_for('views.admineditdashboard')}}">
+                        <i class="fa fa-edit fa-2x"></i>
+                        <span class="nav-text">
+                            Edit details
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.changeadminpassword')}}">
+                       <i class="fa fa-lock fa-2x"></i>
+                        <span class="nav-text">
+                            Change password
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                       <i class="fa fa-user fa-2x"></i>
+                        <span class="nav-text">
+                            Teacher Verification
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.addadmin')}}">
+                       <i class="fa fa-user-plus fa-2x"></i>
+                        <span class="nav-text">
+                            Add Admin
+                        </span>
+                    </a>
+                   
+                </li>
+                
+            </ul>
+            
+            <ul class="logout">
+                <li>
+                   <a href="{{url_for('auth.logout')}}">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+            
+        </nav>
+        
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+   
+         
+</body>
+    </html>

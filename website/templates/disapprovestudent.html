@@ -1,0 +1,168 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>approve</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+
+</head>
+  <body>
+
+    
+    <div class="area">
+        <div class="container d-flex justify-content-center">
+            <div class="card" style="width: 18rem; margin-top: 20px;">
+                <div class="card-body">
+                    <h5 class="card-title">Deny User</h5>
+                    <p class="card-text">Click yes to Approve</p>
+                    <form action="/{{student.id}}/disapprovestudent" method="post">
+                        <input type="submit" value="YES" class="btn btn-outline-danger">
+                        <a href="{{url_for('views.studentverification')}}" class="btn btn-outline-warning">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+       </div><nav class="main-menu">
+        
+            <ul>
+                <li>
+                    <a href="{{url_for('views.teacherdashboard')}}">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                           Home
+                        </span>
+                    </a>
+                  
+                </li>
+                
+               <li class="has-subnav">
+                    <a href="{{url_for('views.teachereditdashboard')}}">
+                        <i class="fa fa-edit fa-2x"></i>
+                        <span class="nav-text">
+                            Edit details
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.teacherchangepassword')}}">
+                       <i class="fa fa-lock fa-2x"></i>
+                        <span class="nav-text">
+                            Change password
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.studentverification')}}">
+                       <i class="fa fa-user fa-2x"></i>
+                        <span class="nav-text">
+                            Student Verification
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.uploadanswersheet')}}">
+                       <i class="fa fa-upload fa-2x"></i>
+                        <span class="nav-text">
+                            Upload answer sheet
+                        </span>
+                    </a>
+                    
+                </li>
+                <!--li class="has-subnav">
+                    <a href="#">
+                       <i class="fa fa-tint fa-2x"></i>
+                        <span class="nav-text">
+                            Last donation date
+                        </span>
+                    </a>
+                   
+                </li-->
+                <!--li>
+                    <a href="#">
+                        <i class="fa fa-film fa-2x"></i>
+                        <span class="nav-text">
+                            Surveying Tutorials
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-book fa-2x"></i>
+                        <span class="nav-text">
+                           Surveying Jobs
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                       <i class="fa fa-cogs fa-2x"></i>
+                        <span class="nav-text">
+                            Tools & Resources
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                        <i class="fa fa-map-marker fa-2x"></i>
+                        <span class="nav-text">
+                            Member Map
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                       <i class="fa fa-info fa-2x"></i>
+                        <span class="nav-text">
+                            Documentation
+                        </span>
+                    </a>
+                </li-->
+            </ul>
+            
+            <ul class="logout">
+                <li>
+                   <a href="{{url_for('auth.logout')}}">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+            
+        </nav>
+        
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+   
+         
+</body>
+    </html>

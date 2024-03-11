@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>  
+ 
+  </head>
+  <body>
+    
+    <div class="area">
+       
+        <div class="area">
+        
+            <div class="container">
+                <div class="container">
+                    <div class="container">
+                
+            <form action = '/admineditdashboard' method= 'POST'>
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text" class="form-control" id="adminname"
+                        placeholder="Enter User Name" name="adminname" value="{{current_user.name}}">
+                </div>
+                <div class="form-group">
+                   
+                    <input type="email" class="form-control" id="adminemail"
+                        placeholder = "Enter the Email" name="adminemail" value="{{current_user.email}}" hidden> 
+                </div>
+                
+             
+                <div class="form-group">
+                <label for="sex" >Sex</label> 
+                <select for="adminsex" class="form-control" name="adminsex" >
+            <option value="{{current_user.sex}}" class="form-control" >{{current_user.sex}}  
+            </option>  
+            <option value = "Male" class="form-control"> Male   
+            </option>  
+            <option value = "Female" class="form-control"> Female  
+            </option>  
+            <option value = "others" class="form-control"> others
+            </option>  
+        </select>    
+        </div> 
+            
+    </select> 
+            <button type="submit" class="btn bg-success">
+                    Update
+                </button>
+            </form>
+            </div>
+
+            
+           
+        </div>
+    
+       
+    </div><nav class="main-menu">
+        
+            <ul>
+                <li>
+                    <a href="{{url_for('views.admindashboard')}}">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                           Home
+                        </span>
+                    </a>
+                  
+                </li>
+                
+               <li class="has-subnav">
+                    <a href="#">
+                        <i class="fa fa-edit fa-2x"></i>
+                        <span class="nav-text">
+                            Edit details
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.changeadminpassword')}}">
+                       <i class="fa fa-lock fa-2x"></i>
+                        <span class="nav-text">
+                            Change password
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.teacherverification')}}">
+                       <i class="fa fa-user fa-2x"></i>
+                        <span class="nav-text">
+                            Teacher Verification
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.addadmin')}}">
+                       <i class="fa fa-user-plus fa2x"></i>
+                        <span class="nav-text">
+                            Add Admin
+                        </span>
+                    </a>
+                   
+                </li>
+                
+            </ul>
+            
+            <ul class="logout">
+                <li>
+                   <a href="{{url_for('auth.logout')}}">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+            
+        </nav>
+        
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+   
+         
+</body>
+    </html>

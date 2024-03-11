@@ -1,0 +1,165 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+    <style>
+        
+     
+    </style>   
+ 
+  </head>
+  <body>
+    
+    
+    <div class="area">
+       
+       <center> <h1>Welcome {{current_user.name}} </h1><br>
+      
+            {% with messages = get_flashed_messages(with_categories=true) %} {% if
+                messages %} {% for category, message in messages %} {% if category ==
+                'error' %}
+                <div class="alert alert-danger alter-dismissable fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% else %}
+                <div class="alert alert-success alter-dismissable fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %} {% endfor %} {% endif %} {% endwith %}
+                </center>
+   
+        <div class="container mt-5">
+            <h2>Add Admin</h2>
+            <form action="/addadmin" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <select class="form-control" id="sex" name="sex">
+                        <option value="" disabled selected>Select your option</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <input type="hidden" name="role" value="2"> <!-- Hidden field for role -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+       
+    </div><nav class="main-menu">
+        
+            <ul>
+                <li>
+                    <a href="{{url_for('views.admindashboard')}}">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                           Home
+                        </span>
+                    </a>
+                  
+                </li>
+                
+               <li class="has-subnav">
+                    <a href="{{url_for('views.admineditdashboard')}}">
+                        <i class="fa fa-edit fa-2x"></i>
+                        <span class="nav-text">
+                            Edit details
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.changeadminpassword')}}">
+                       <i class="fa fa-lock fa-2x"></i>
+                        <span class="nav-text">
+                            Change password
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{{url_for('views.teacherverification')}}">
+                       <i class="fa fa-user fa-2x"></i>
+                        <span class="nav-text">
+                            Teacher Verification
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                       <i class="fa fa-user-plus fa2x"></i>
+                        <span class="nav-text">
+                            Add Admin
+                        </span>
+                    </a>
+                   
+                </li>
+                
+            </ul>
+            
+            <ul class="logout">
+                <li>
+                   <a href="{{url_for('auth.logout')}}">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+            
+        </nav>
+        
+    
+        
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+   
+         
+</body>
+    </html>

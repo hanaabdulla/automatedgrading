@@ -1,0 +1,145 @@
+{% extends "base.html" %}{% block title %}Register{% endblock %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <style>
+        
+        .card {
+            border: none;
+        margin-top: 100px;
+        }
+
+        .card img {
+            max-height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 0.9rem;
+            border-bottom-left-radius: 0.25rem;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-check-inline {
+            margin-right: 1px;
+        }
+
+        .password-warning {
+            color: red;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .card img {
+                display: none; /* Hide image on small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="h-100 bg-light">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class="card card-registration my-4">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                    alt="Sample photo" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body p-md-5 text-blackz">
+                                    <h3 class="mb-5 text-uppercase">Student Registration Form</h3>
+
+                                    <form action="/studentregister" method="POST">
+                                        <div class="mb-3">
+                                            
+                                                <label for="formFirstName" class="form-label">Name</label>
+                                                <input type="text" class="form-control" id="studentname" name="studentname">
+                                            
+                                            
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="formEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="studentemail" name="studentemail">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="registernumber" class="form-label">Register Number</label>
+                                            <input type="text" class="form-control" id="studentregisternumber" name="studentregisternumber">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="formDOB" class="form-label">Date of Birth</label>
+                                            <input type="date" class="form-control" id="studentdob" name="studentdob">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="gender" class="form-label">Gender</label>
+                                            <select class="form-control" id="studentgender" name="studentgender">
+                                                <option value="" selected>Select Gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="others">Others</option>
+                                            </select>
+                                        </div>   
+                                        <div class="mb-3">
+                                            <label for="semester" class="form-label">Semester</label>
+                                            <select class="form-control" id="studentsemester" name="studentsemester">
+                                                <option value="" selected>Select Semester</option>
+                                                <option value="S1">S1</option>
+                                                <option value="S2">S2</option>
+                                                <option value="S3">S3</option>
+                                                <option value="S4">S4</option>
+                                                <option value="S5">S5</option>
+                                                <option value="S6">S6</option>
+                                                <option value="S7">S7</option>
+                                                <option value="S8">S8</option>
+                                            </select>
+                                        </div> 
+
+                                        <div class="mb-3">
+                                            <label for="department" class="form-label">Department</label>
+                                            <select class="form-control" id="studentdepartment" name="studentdepartment">
+                                                <option value="" selected>Select Department</option>
+                                                <option value="IT">Information Technology (IT)</option>
+                                                <option value="CSE">Computer Science (CSE)</option>
+                                                <option value="EEE">Electrical Engineering (EEE)</option>
+                                                <option value="ME">Mechanical Engineering (ME)</option>
+                                                <option value="ECE">Electronics and Communication Engineering (ECE)</option>
+                                                <option value="CE">Civil Engineering (CE)</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="studentpassword" name="studentpassword" >
+                                            <small class="form-text text-muted" id="passwordHelp">Password must contain at least 8 characters including uppercase, lowercase, and digits.</small>
+                                            <div class="password-warning" id="passwordWarning"></div>
+                                        </div>
+
+                                        
+
+                                        <div class="d-flex justify-content-end pt-3">
+                                            
+                                            <button type="submit" class="btn btn-warning btn-lg ms-2" >Submit form</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+{% endblock %}
